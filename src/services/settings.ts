@@ -94,6 +94,14 @@ export default async function callSettings() {
         "If set to true, all retrieved tasks will have a Todoist URL appended.",
     },
     {
+      key: "retrieveNoTags",
+      type: "boolean",
+      default: false,
+      title: "Do not append metadata as tags",
+      description:
+          "If set to true, no tags will be added to each retrieved task.",
+    },
+    {
       key: "retrieveClearTasks",
       type: "boolean",
       default: false,

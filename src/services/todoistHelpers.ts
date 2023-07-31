@@ -208,6 +208,11 @@ export async function retrieveTasks(event: { uuid: string }, flag: string) {
   if (logseq.settings!.enableTodoistSync) {
     syncTask(event);
   } else {
+    if (logseq.settings!.retrieveNoTags) {
+      for (const task of tasksArr) {
+        delete task['properties'];
+      }
+    }
     await logseq.Editor.insertBatchBlock(event.uuid, tasksArr, {
       sibling: !projectNameAsParentBlk,
       before: false,
